@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# IDE / generated metadata
+**/.metadata/
+
+# KiCad generated files
+**/*-backups/
+**/fp-info-cache
+**/*.kicad_prl
+
+# PlatformIO build output
+**/.pio/

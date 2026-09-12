@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug STM32F767 (ST-LINK/OpenOCD)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "serverpath": "C:/Users/m4z3o/AppData/Roaming/xPacks/@xpack-dev-tools/openocd/0.12.0-7.1/.content/bin/openocd.exe",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/Debug/SSD1963_LCD.elf",
+      "device": "STM32F767VG",
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/stm32f7x.cfg"
+      ],
+      "runToEntryPoint": "main",
+      "preLaunchTask": "Build (Debug)"
+    }
+  ]
+}

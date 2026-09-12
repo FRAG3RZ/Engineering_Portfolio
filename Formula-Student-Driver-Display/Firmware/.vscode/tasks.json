@@ -1,0 +1,172 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Git Pull on Start",
+      "type": "shell",
+      "command": "git",
+      "args": [
+        "pull"
+      ],
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Configure (Debug)",
+      "type": "shell",
+      "command": "cube-cmake",
+      "args": [
+        "-S",
+        "${workspaceFolder}",
+        "-B",
+        "${workspaceFolder}/build/Debug",
+        "-G",
+        "Ninja",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/cmake/gcc-arm-none-eabi.cmake",
+        "-DCMAKE_COMMAND=cube-cmake",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (Debug)",
+      "type": "shell",
+      "command": "cube-cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/build/Debug",
+        "-j"
+      ],
+      "dependsOn": "Configure (Debug)",
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Configure (Release)",
+      "type": "shell",
+      "command": "cube-cmake",
+      "args": [
+        "-S",
+        "${workspaceFolder}",
+        "-B",
+        "${workspaceFolder}/build/Release",
+        "-G",
+        "Ninja",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/cmake/gcc-arm-none-eabi.cmake",
+        "-DCMAKE_COMMAND=cube-cmake",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (Release)",
+      "type": "shell",
+      "command": "cube-cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/build/Release",
+        "-j"
+      ],
+      "dependsOn": "Configure (Release)",
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Flash (ST-LINK via CubeProgrammer)",
+      "type": "shell",
+      "command": "STM32_Programmer_CLI",
+      "args": [
+        "-c",
+        "port=SWD",
+        "reset=HWrst",
+        "-w",
+        "${workspaceFolder}/build/Release/SSD1963_LCD.elf",
+        "-v",
+        "-rst"
+      ],
+      "dependsOn": "Build (Release)",
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "Enter DFU over CDC (Windows)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$port = New-Object System.IO.Ports.SerialPort 'COM5',115200,'None',8,'one'; $port.Open(); $port.Write('ENTER_DFU`n'); Start-Sleep -Milliseconds 200; $port.Close()"
+      ],
+      "windows": {
+        "command": "powershell"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Enter DFU over CDC (macOS)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "printf 'ENTER_DFU\n' > /dev/tty.usbmodemXXXX"
+      ],
+      "osx": {
+        "command": "bash"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Flash via USB DFU",
+      "type": "shell",
+      "command": "STM32_Programmer_CLI",
+      "args": [
+        "-c",
+        "port=USB1",
+        "-w",
+        "${workspaceFolder}/build/Release/SSD1963_LCD.bin",
+        "0x08000000",
+        "-v",
+        "-rst"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Build + Enter DFU + Flash (Windows)",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Build (Release)",
+        "Enter DFU over CDC (Windows)",
+        "Flash via USB DFU"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Build + Enter DFU + Flash (macOS)",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Build (Release)",
+        "Enter DFU over CDC (macOS)",
+        "Flash via USB DFU"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
