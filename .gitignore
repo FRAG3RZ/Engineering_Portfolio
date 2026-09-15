@@ -11,3 +11,6 @@
 
 # PlatformIO build output
 **/.pio/
+
+# README Polish
+**/*.css

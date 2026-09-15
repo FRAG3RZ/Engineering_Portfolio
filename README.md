@@ -1,11 +1,7 @@
 ﻿<h1 align="center">⚙️ Daniel Borkovec - Engineering Portfolio</h1>
 
 <p align="center">
-  <b>Embedded Systems & Electronics Engineer</b>
-</p>
-
-<p align="center">
-  MEng Electrical & Electronic Engineering · University of Glasgow
+  4th Year MEng Electrical & Electronic Engineering · University of Glasgow
 </p>
 
 <p align="center">
@@ -49,6 +45,8 @@ The published PCB revision was developed in **KiCad**, with subsequent redesign 
 
 ---
 
+<div class="page-break"></div>
+
 ## ⚡ Automated Power Test Platform
 
 <p align="center">
@@ -79,6 +77,8 @@ enclosure with visual output indication.
 
 ---
 
+<div class="page-break"></div>
+
 ## 🤖 Autonomous Line-Following Rover
 
 <p align="center">
@@ -102,6 +102,8 @@ Autonomous embedded rover combining real-time C++ control, line sensing, ultraso
 ### → [Explore the project](https://github.com/FRAG3RZ/Engineering_Portfolio/tree/main/Autonomous-Line-Following-Rover)
 
 ---
+
+<div class="page-break"></div>
 
 ## 🛠️ Technical Focus
 

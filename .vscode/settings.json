@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "C:/Users/m4z3o/Desktop/Git Repos/Engineering_Portfolio/Formula-Student-Driver-Display/Firmware"
+    "cmake.sourceDirectory": "C:/Users/m4z3o/Desktop/Git Repos/Engineering_Portfolio/Formula-Student-Driver-Display/Firmware",
+    "markdown-pdf.styles": [
+        "portfolio-pdf.css"
+    ]
 }
