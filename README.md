@@ -45,7 +45,7 @@ The published PCB revision was developed in **KiCad**, with subsequent redesign 
 
 > **My role:** PCB and schematic design · SMD assembly · board bring-up · embedded C · display firmware · dashboard modes · CAN · touchscreen · hardware/software integration
 
-### → [Explore the project](Formula-Student-Driver-Display/)
+### → [Explore the project](https://github.com/FRAG3RZ/Engineering_Portfolio/tree/main/Formula-Student-Driver-Display)
 
 ---
 
@@ -75,7 +75,7 @@ enclosure with visual output indication.
 > data analysis · FT232H interfacing · power measurement · programmable loads ·
 > 3D CAD & printing
 
-### → [Explore the project](Automated-Power-Test-Platform/)
+### → [Explore the project](https://github.com/FRAG3RZ/Engineering_Portfolio/tree/main/Automated-Power-Test-Platform)
 
 ---
 
@@ -99,7 +99,7 @@ Autonomous embedded rover combining real-time C++ control, line sensing, ultraso
 
 > **My role:** Team lead · embedded C++ · control architecture · motor and line-sensing electronics · subsystem integration
 
-### → [Explore the project](Autonomous-Line-Following-Rover/)
+### → [Explore the project](https://github.com/FRAG3RZ/Engineering_Portfolio/tree/main/Autonomous-Line-Following-Rover)
 
 ---
 

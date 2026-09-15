@@ -149,5 +149,5 @@ Automated-Power-Test-Platform/
 ---
 
 <p align="center">
-  <a href="../README.md">← Back to Engineering Portfolio</a>
+  <a href="https://github.com/FRAG3RZ/Engineering_Portfolio/blob/main/README.md">← Back to Engineering Portfolio</a>
 </p>
